@@ -10,7 +10,7 @@ router.post("/user/login",AuthController.userLogin);
 
 //protected routes//
 router.post("/add/products",checkIsUserAuthenticated,proController.addNewProducts);
-router.post("/get/allproducts",checkIsUserAuthenticated,proController.getAllProducts);
+router.get("/get/allproducts",checkIsUserAuthenticated,proController.getAllProducts);
 router.delete("/delete/product",checkIsUserAuthenticated,proController.deleteProduct);
 router.put("/update/product",checkIsUserAuthenticated,proController.updateProduct);
 

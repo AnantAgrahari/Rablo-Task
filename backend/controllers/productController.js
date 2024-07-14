@@ -6,16 +6,17 @@ class proController{
 
     // add new products //
     static addNewProducts=async(req,res)=>{
-        const{Name, price, Rating,Company}=req.body;
+        const{productId,name, price,featured, rating,company}=req.body;
         try {
-            if( Name && price && Rating && Company)
+            if( productId!==undefined && name && price !== undefined && featured !== undefined && rating && company)
                 {
                const addProduct=new proModel({
-                Name: Name,
+                productId:productId,
+                name: name,
                 price: price,
                 featured: featured,
-                Rating: Rating,
-                Company: Company,
+                rating: rating,
+                company: company,
                });
                const savedProduct=await addProduct.save();
                if(savedProduct)
@@ -114,7 +115,7 @@ class proController{
     static fetchRating= async(req,res)=>{
         const {minRating}=req.body;
         try {
-            const fetchAllProducts=await proModel.find({ Rating: { $gt: minRating} });
+            const fetchAllProducts=await proModel.find({ rating: { $gt: minRating} });
             return res.status(200).json(fetchAllProducts);
         } catch (error) {
             return res.status(400).json({message:error.message});

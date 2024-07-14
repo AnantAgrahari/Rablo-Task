@@ -1,4 +1,4 @@
-import express from "express";
+
 import mongoose from "mongoose";
 const productSchema=new mongoose.Schema({
 
@@ -7,7 +7,7 @@ const productSchema=new mongoose.Schema({
         required: [true,"Please enter the productId"],
         unique: true
     },
-    Name:{
+    name:{
         type:String,
         required: [true,"Please enter the Name"]
     },
@@ -17,12 +17,13 @@ const productSchema=new mongoose.Schema({
     },
    featured:{
         type:Boolean,
-        required: true
+        required: true,
+        default: false
     },
-   Rating:{
-        type: Decimal128,
+   rating:{
+        type: Number,
     },
-    Company:{
+    company:{
         type:String,
         required: [true,"Please enter the company name"]
     },

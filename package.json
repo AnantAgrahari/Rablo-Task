@@ -5,7 +5,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "nodemon": "nodemon"
+    "start":"react-scripts start"
   },
   "author": "",
   "license": "ISC",
