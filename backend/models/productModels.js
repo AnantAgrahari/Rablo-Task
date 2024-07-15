@@ -23,6 +23,10 @@ const productSchema=new mongoose.Schema({
    rating:{
         type: Number,
     },
+    email:{
+        type: String,
+        required: [true,"please enter your email"]
+    },
     company:{
         type:String,
         required: [true,"Please enter the company name"]

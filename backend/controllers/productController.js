@@ -6,9 +6,9 @@ class proController{
 
     // add new products //
     static addNewProducts=async(req,res)=>{
-        const{productId,name, price,featured, rating,company}=req.body;
+        const{productId,name, price,featured, rating,company,email}=req.body;
         try {
-            if( productId!==undefined && name && price !== undefined && featured !== undefined && rating && company)
+            if( productId!==undefined && name && price !== undefined && featured !== undefined && rating && company )
                 {
                const addProduct=new proModel({
                 productId:productId,
@@ -17,6 +17,8 @@ class proController{
                 featured: featured,
                 rating: rating,
                 company: company,
+                user:req.user._id,
+                email:email
                });
                const savedProduct=await addProduct.save();
                if(savedProduct)
@@ -37,8 +39,9 @@ class proController{
 
     // Get all products //
     static getAllProducts= async(req,res)=>{
+        const {email}=req.body;
         try {
-            const fetchAllProducts=await proModel.find({user: req.user._id});
+            const fetchAllProducts=await proModel.find({email:email});
             return res.status(200).json(fetchAllProducts);
         } catch (error) {
             return res.status(400).json({message:error.message});

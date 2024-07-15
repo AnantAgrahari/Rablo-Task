@@ -14,7 +14,7 @@ class AuthController{
             const genSalt=await bcrypt.genSalt(10);                       // higher the value in gensalt, stronger the salt will be genrated//
             const hashedPassword = await bcrypt.hash(password,genSalt); 
             //save a user
-            const newUser=authModel({
+            const newUser= await authModel({
                 username:username,
                 email:email,
                 password:hashedPassword,

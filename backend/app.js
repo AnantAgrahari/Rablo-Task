@@ -7,7 +7,7 @@ const app=express();
 const port=3000;
 
 
-const connection_url = "mongodb://127.0.0.1:27017";
+const connection_url = "mongodb+srv://anant:2jvw8VHYKdCX9BeU@cluster0.3h6loaz.mongodb.net/";
 // mongodb://127.0.0.1/test 
 mongoose.set('strictQuery', true);
 mongoose.connect(connection_url, { useNewUrlParser: true, useUnifiedTopology: true,family:4})
