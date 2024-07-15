@@ -6,17 +6,18 @@ class proController{
 
     // add new products //
     static addNewProducts=async(req,res)=>{
-        const{productId,name, price,featured, rating,company,email}=req.body;
+        const{productId,Name, Price,featured, Rating,Company,email}=req.body;
+        // console.log(name);
         try {
-            if( productId!==undefined && name && price !== undefined && featured !== undefined && rating && company )
+            if( productId!==undefined && Name && Price !== undefined && featured !== undefined && Rating && Company )
                 {
                const addProduct=new proModel({
                 productId:productId,
-                name: name,
-                price: price,
+                name: Name,
+                price: Price,
                 featured: featured,
-                rating: rating,
-                company: company,
+                rating: Rating,
+                company: Company,
                 user:req.user._id,
                 email:email
                });
