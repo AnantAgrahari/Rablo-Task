@@ -40,7 +40,7 @@ class proController{
 
     // Get all products //
     static getAllProducts= async(req,res)=>{
-        const {email}=req.body;
+        const email=req.user.email;
         try {
             const fetchAllProducts=await proModel.find({email:email});
             return res.status(200).json(fetchAllProducts);
